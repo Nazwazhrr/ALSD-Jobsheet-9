@@ -29,15 +29,18 @@ import java.util.Scanner;
                  System.out.printf("Tugas %s berhasil dikumpulkan\n", mhs.nama);
                  break;
              case 2:
-                 Mahasiswa15 dinilai = stack.pop();
-                 if (dinilai != null) {
-                     System.out.println("Menilai tugas dari " + dinilai.nama);
-                     System.out.print("Masukkan nilai (0-100): ");
-                     int nilai = input15.nextInt();
-                     dinilai.tugasDinilai(nilai);
-                     System.out.printf("Nilai Tugas %s adalah %d\n", dinilai.nama, nilai);
-                 }
-                 break;
+             Mahasiswa15 dinilai = stack.pop();
+             if (dinilai != null) {
+                 System.out.println("Menilai tugas dari " + dinilai.nama);
+                 System.out.print("Masukkan nilai (0-100): ");
+                 int nilai = input15.nextInt();
+                 dinilai.tugasDinilai(nilai);
+                 System.out.printf("Nilai Tugas %s adalah %d\n", dinilai.nama, nilai);
+                 String biner = konversiDesimalKeBiner(nilai); 
+                 System.out.println("Nilai Biner Tugas: " + biner); 
+             }
+             break;
+         
              case 3:
                  Mahasiswa15 lihat = stack.peek();
                  if (lihat != null) {
@@ -64,4 +67,21 @@ import java.util.Scanner;
              }
          } while (pilih >= 1 && pilih <= 6);
       }
- }
+
+      public static String konversiDesimalKeBiner(int nilai) {
+        StackKonversi15 stack = new StackKonversi15();
+        while (nilai > 0) {
+            int sisa = nilai % 2;
+            stack.push(sisa);
+            nilai = nilai / 2;
+        }
+    
+        String biner = "";
+        while (!stack.isEmpty()) {
+            biner += stack.pop();
+        }
+    
+        return biner;
+    }
+}
+

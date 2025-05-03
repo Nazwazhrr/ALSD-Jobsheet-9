@@ -66,7 +66,7 @@ public class StackTugasMahasiswa15 {
     public int hitungTugas() {
         return top + 1;
     }
-
+    
     public void print() {
         for (int i = top; i >= 0; i--) {
             System.out.println(stack[i].nama + "\t" + stack[i].nim + "\t" + stack[i].kelas);
