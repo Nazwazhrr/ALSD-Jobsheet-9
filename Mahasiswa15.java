@@ -39,5 +39,4 @@ public class Mahasiswa15 {
         }
         return biner;
     }
-    
 }

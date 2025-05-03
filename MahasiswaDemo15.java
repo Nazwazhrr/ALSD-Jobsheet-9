@@ -84,4 +84,3 @@ import java.util.Scanner;
         return biner;
     }
 }
-
