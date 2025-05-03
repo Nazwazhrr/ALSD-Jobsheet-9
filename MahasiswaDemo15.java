@@ -11,6 +11,8 @@ import java.util.Scanner;
          System.out.println("2. Menilai Tugas");
          System.out.println("3. Melihat Tugas Teratas");
          System.out.println("4. Melihat Daftar Tugas");
+         System.out.println("5. Lihat Tugas Pertama yang Masuk");
+         System.out.println("6. Lihat Jumlah Tugas");
          System.out.print("Pilih: ");
          pilih = input15.nextInt();
          input15.nextLine();
@@ -47,9 +49,19 @@ import java.util.Scanner;
                  System.out.println("Nama\tNIM\tKelas");
                  stack.print();
                  break;   
+            case 5:
+                Mahasiswa15 pertama = stack.bottom();
+                if (pertama != null) {
+                    System.out.println("Mahasiswa pertama yang mengumpulkan tugas:");
+                    System.out.println(pertama.nama + "\t" + pertama.nim + "\t" + pertama.kelas);
+                }
+                break;
+            case 6:
+                System.out.println("Jumlah tugas sekarang: " + stack.hitungTugas());
+                break;
              default:
                  System.out.println("Pilihan tidak valid.");
              }
-         } while (pilih >= 1 && pilih <= 4);
+         } while (pilih >= 1 && pilih <= 6);
       }
  }
